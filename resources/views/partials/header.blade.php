@@ -31,15 +31,15 @@
                             <div class="hidden d-flex px-0 py-0 sm:block">
                                 @auth
                                     <a href="{{ url('/dashboard') }}"
-                                        class="text-sm no-underline text-gray-700 dark:text-gray-500 underline">{{ $headers[6]->nav }}</a>
+                                        class="text-sm text-gray-700 dark:text-gray-500 underline">{{ $headers[6]->nav }}</a>
                                 @else
                                     <a href="{{ route('login') }}"
-                                        class="text-sm no-underline text-gray-700 dark:text-gray-500 underline">{{ $headers[7]->nav }}
+                                        class="text-sm text-gray-700 dark:text-gray-500 underline">{{ $headers[7]->nav }}
                                         in</a>
 
                                     @if (Route::has('register'))
                                         <a href="{{ route('register') }}"
-                                            class="ml-4 text-sm no-underline text-gray-700 dark:text-gray-500 underline">{{ $headers[8]->nav }}</a>
+                                            class="ml-4 text-sm  text-gray-700 dark:text-gray-500 underline">{{ $headers[8]->nav }}</a>
                                     @endif
                                 @endauth
                             </div>

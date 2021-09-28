@@ -15,7 +15,7 @@ class HomeHeroController extends Controller
     public function index()
     {
         $heroes = HomeHero::all();
-        return view('pages.home', compact('heroes'));
+        return view('pages.back-home', compact('heroes'));
     }
 
     /**
@@ -48,7 +48,7 @@ class HomeHeroController extends Controller
     public function show($id)
     {
         $show = HomeHero::find($id);
-        return view('backEnd.homeHero.show', compact('show'));
+        return view('partials.homeHero.show', compact('show'));
     }
 
     /**
@@ -60,7 +60,7 @@ class HomeHeroController extends Controller
     public function edit($id)
     {
         $edit = HomeHero::find($id);
-        return view('backEnd.homeHero.edit', compact('edit'));
+        return view('partials.homeHero.edit', compact('edit'));
     }
 
     /**
@@ -72,7 +72,16 @@ class HomeHeroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect('/back-office/')
+        $update = HomeHero::find($id);
+        // Texte
+        $update->titre_pt_1 = $request->titre_pt_1;
+        $update->titre_pt_2 = $request->titre_pt_2;
+        $update->sous_titre = $request->sous_titre;
+        // Image
+        $update->image = $request->image;
+        $update->save();
+
+        return redirect('/back-home');
     }
 
     /**
@@ -81,8 +90,11 @@ class HomeHeroController extends Controller
      * @param  \App\Models\HomeHero  $homeHero
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeHero $homeHero)
+    public function destroy($id)
     {
-        //
+        $destroy = HomeHero::find($id);
+        $destroy->delete();
+
+        return redirect('/back-home');
     }
 }

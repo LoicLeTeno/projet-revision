@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HeaderController;
+use App\Http\Controllers\HomeHeroController;
 use App\Models\Footer;
 use App\Models\Header;
 use App\Models\HomeHero;
@@ -19,9 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $headers = Header::all();
+    $heroes = HomeHero::all();
     $footers = Footer::all();
 
-    return view('pages.home', compact('headers', 'footers'));
+    return view('pages.home', compact('headers','heroes', 'footers'));
 });
 
 Route::get('/about', function () {
@@ -55,10 +57,20 @@ Route::get('/contact', function () {
     return view('pages.contact', compact('headers', 'footers'));
 });
 
+// ------------------------------------------------------------------------------------------------------------
 
-// BACK-END
+// DASHBOARD
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+// HOME
+Route::get('/back-home', function () {
+    $heroes = HomeHero::all();
+    return view('pages.back-home', compact('heroes'));
+})->middleware(['auth'])->name('back-home');
+
+// BACK-END
+Route::resource('homeHero', HomeHeroController::class);
 
 require __DIR__.'/auth.php';
