@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\HeaderController;
+use App\Models\Footer;
+use App\Models\Header;
+use App\Models\HomeHero;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,26 +18,45 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.home');
+    $headers = Header::all();
+    $footers = Footer::all();
+
+    return view('pages.home', compact('headers', 'footers'));
 });
 
 Route::get('/about', function () {
-    return view('pages.about');
+    $headers = Header::all();
+    $footers = Footer::all();
+
+    return view('pages.about', compact('headers', 'footers'));
 });
 Route::get('/courses', function () {
-    return view('pages.courses');
+    $headers = Header::all();
+    $footers = Footer::all();
+
+    return view('pages.courses', compact('headers', 'footers'));
 });
 Route::get('/course-details', function () {
-    return view('pages.course-details');
+    $headers = Header::all();
+    $footers = Footer::all();
+
+    return view('pages.course-details', compact('headers', 'footers'));
 });
 Route::get('/trainers', function () {
-    return view('pages.trainers');
+    $headers = Header::all();
+    $footers = Footer::all();
+
+    return view('pages.trainers', compact('headers', 'footers'));
 });
 Route::get('/contact', function () {
-    return view('pages.contact');
+    $headers = Header::all();
+    $footers = Footer::all();
+
+    return view('pages.contact', compact('headers', 'footers'));
 });
 
 
+// BACK-END
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

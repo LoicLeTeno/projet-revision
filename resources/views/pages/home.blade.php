@@ -2,10 +2,10 @@
 
 @section('content')
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex justify-content-center align-items-center">
+    <section id="hero" style="background-image: url({{ $heroes[0]->image }})" class="d-flex justify-content-center align-items-center">
         <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-            <h1>Learning Today,<br>Leading Tomorrow</h1>
-            <h2>We are team of talented designers making websites with Bootstrap</h2>
+            <h1>{{ $heroes[0]->titre_pt_1 }}<br>{{ $heroes[0]->titre_pt_2 }}</h1>
+            <h2>{{ $heroes[0]->sous_titre }}</h2>
             <a href="/courses" class="btn-get-started">Get Started</a>
         </div>
     </section><!-- End Hero -->
