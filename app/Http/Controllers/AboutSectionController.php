@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutSection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AboutSectionController extends Controller
 {
@@ -74,7 +75,13 @@ class AboutSectionController extends Controller
     {
         $update = AboutSection::find($id);
         // Image
-        $update->image = $request->image;
+        if ($request->image != null) {
+            if ($update->image != 'about.jpg') {
+                Storage::delete('public/img/' .$update->image);
+            }
+            Storage::put('public/img/', $request->file('image'));
+            $update->image = $request->file('image')->hashName();
+        }
         // Texte
         $update->text = $request->text;
         $update->li_1 = $request->li_1;

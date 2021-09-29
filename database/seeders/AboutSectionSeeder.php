@@ -17,7 +17,7 @@ class AboutSectionSeeder extends Seeder
         DB::table('about_sections')->insert([
             [
                 // Image
-                'image' => 'img/about.jpg',
+                'image' => 'about.jpg',
 
                 // Texte
                 'titre' => 'Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.',

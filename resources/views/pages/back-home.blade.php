@@ -23,14 +23,28 @@
         @include('partials.countSection.back')
     </section>
 
-        {{-- Why Us section --}}
+    {{-- Why Us section --}}
+    <section class="pt-0">
+        <h3 class="container">Why Us Section</h3>
+
+        <h5 class="flex justify-center mt-3 mb-1">Présentation</h5>
+        @include('partials.whyUpSection.back')
+
+        <h5 class="flex justify-center mt-3 mb-1">Cards</h5>
+        @include('partials.whyDownSection.back')
+    </section>
+
+    {{-- Feature section --}}
+    <section class="pt-0">
+        <h3 class="container">Feature Section</h3>
+        @include('partials.featureSection.back')
+    </section>
+
+        {{-- Popular section --}}
         <section class="pt-0">
-            <h3 class="container">Why  Us Section</h3>
+            <h3 class="container">Popular Section</h3>
 
-            <h5 class="flex justify-center mt-3 mb-1">Présentation</h5>
-            @include('partials.whyUpSection.back')
-
-            <h5 class="flex justify-center mt-3 mb-1">Cards</h5>
-            @include('partials.whyDownSection.back')
+            <h5 class="flex justify-center mt-3 mb-1">Titre</h5>
+            @include('partials.popularTitleSection.back')
         </section>
 </x-app-layout>

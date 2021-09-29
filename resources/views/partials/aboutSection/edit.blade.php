@@ -116,7 +116,7 @@
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="image" value="{{ $edit->image }}">
+                                                    type="file" name="image">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">

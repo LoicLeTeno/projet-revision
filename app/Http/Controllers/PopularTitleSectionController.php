@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WhyDownSection;
+use App\Models\PopularTitleSection;
 use Illuminate\Http\Request;
 
-class WhyDownSectionController extends Controller
+class PopularTitleSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class WhyDownSectionController extends Controller
      */
     public function index()
     {
-        $whyDowns = WhyDownSection::all();
-        return view('pages.back-home', compact('whyDowns'));
+        $popularTitles = PopularTitleSection::all();
+        return view('pages.back-home', compact('popularTitles'));
     }
 
     /**
@@ -25,7 +25,7 @@ class WhyDownSectionController extends Controller
      */
     public function create()
     {
-        return view('partials.whyDownSection.create');
+        //
     }
 
     /**
@@ -36,52 +36,45 @@ class WhyDownSectionController extends Controller
      */
     public function store(Request $request)
     {
-        $store = new WhyDownSection;
-        $store->icon = $request->icon;
-        $store->titre = $request->titre;
-        $store->text = $request->text;
-        $store->save();
-
-        return redirect('/back-home');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\WhyDownSection  $whyDownSection
+     * @param  \App\Models\PopmularTitleSection  $polularTitleSection
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $show = WhyDownSection::find($id);
-        return view('partials.whyDownSection.show', compact('show'));
+        $show = PopularTitleSection::find($id);
+        return view('partials.popularTitleSection.show', compact('show'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\WhyDownSection  $whyDownSection
+     * @param  \App\Models\PopularTitleSection  $polularTitleSection
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $edit = WhyDownSection::find($id);
-        return view('partials.whyDownSection.edit', compact('edit'));
+        $edit = PopularTitleSection::find($id);
+        return view('partials.popularTitleSection.edit', compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\WhyDownSection  $whyDownSection
+     * @param  \App\Models\PopularTitleSection  $polularTitleSection
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $update = WhyDownSection::find($id);
-        $update->icon = $request->icon;
+        $update = PopularTitleSection::find($id);
         $update->titre = $request->titre;
-        $update->text = $request->text;
+        $update->sous_titre = $request->sous_titre;
         $update->save();
 
         return redirect('/back-home');
@@ -90,12 +83,12 @@ class WhyDownSectionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\WhyDownSection  $whyDownSection
+     * @param  \App\Models\PopularTitleSection  $polularTitleSection
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $destroy = WhyDownSection::find($id);
+        $destroy = PopularTitleSection::find($id);
         $destroy->delete();
 
         return redirect('/back-home');

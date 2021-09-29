@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             CountSectionSeeder::class,
             WhyUpSectionSeeder::class,
             WhyDownSectionSeeder::class,
+            FeatureSectionSeeder::class,
+            PopularTitleSectionSeeder::class,
             
         ]);
     }

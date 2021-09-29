@@ -19,7 +19,7 @@
                     <!-- ======= Why Us Section ======= -->
                     <section id="why-us" class="why-us py-0">
                         <div class="container" data-aos="fade-up">
-                            <div class="flex justify-center">
+                            <div class="row justify-center">
                                 <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in"
                                     data-aos-delay="100">
                                     <div class="icon-boxes d-flex flex-column justify-content-center w-1/3 mx-auto">

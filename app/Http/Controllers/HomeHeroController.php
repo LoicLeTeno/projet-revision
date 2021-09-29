@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeHero;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeHeroController extends Controller
 {
@@ -78,7 +79,13 @@ class HomeHeroController extends Controller
         $update->titre_pt_2 = $request->titre_pt_2;
         $update->sous_titre = $request->sous_titre;
         // Image
-        $update->image = $request->image;
+        if ($request->image != null) {
+            if ($update->image != 'hero-bg.jpg') {
+                Storage::delete('public/img/' .$update->image);
+            }
+            Storage::put('public/img/', $request->file('image'));
+            $update->image = $request->file('image')->hashName();
+        }
         $update->save();
 
         return redirect('/back-home');

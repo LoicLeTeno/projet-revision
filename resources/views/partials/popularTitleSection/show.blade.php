@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Home (Hero Show)') }}
+            {{ __('Home (Popular Title Section Show)') }}
         </h2>
     </x-slot>
 
@@ -15,15 +15,15 @@
                     </a>
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <!-- ======= Hero Section ======= -->
-                    <section id="hero" style="background-image: url({{ asset('storage/img/' .$show->image) }})"
-                        class="d-flex justify-content-center align-items-center">
-                        <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-                            <h1>{{ $show->titre_pt_1 }}<br>{{ $show->titre_pt_2 }}</h1>
-                            <h2>{{ $show->sous_titre }}</h2>
-                            <a href="/courses" class="btn-get-started">Get Started</a>
+                    <!-- ======= Popular Courses Section ======= -->
+                    <section id="popular-courses" class="courses py-0">
+                        <div class="container flex justify-center" data-aos="fade-up">
+                            <div class="section-title">
+                                <h2>{{ $show->titre }}</h2>
+                                <p>{{ $show->sous_titre }}</p>
+                            </div>
                         </div>
-                    </section><!-- End Hero -->
+                    </section><!-- End Popular Courses Section -->
                 </div>
             </div>
         </div>

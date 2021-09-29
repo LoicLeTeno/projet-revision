@@ -22,7 +22,7 @@ class HomeHeroSeeder extends Seeder
                 'sous_titre' => 'We are team of talented designers making websites with Bootstrap',
 
                 // Image
-                'image' => 'img/hero-bg.jpg',
+                'image' => 'hero-bg.jpg',
             ],
         ]);
     }

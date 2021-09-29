@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Home (Hero Edit)') }}
+            {{ __('Home (Popular Title Section Edit)') }}
         </h2>
     </x-slot>
 
@@ -16,7 +16,7 @@
                                 type="submit">Retour</button>
                         </a>
                     </div>
-                    <form action="/homeHero/{{ $edit->id }}" method="POST" enctype="multipart/form-data">
+                    <form action="/popularTitleSection/{{ $edit->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="border-b border-gray-200 shadow">
@@ -24,16 +24,10 @@
                                 <thead class="bg-gray-50">
                                     <tr>
                                         <th class="px-6 py-2 text-xs text-gray-500">
-                                            Titre partie 1
+                                            Titre
                                         </th>
                                         <th class="px-6 py-2 text-xs text-gray-500">
-                                            Titre partie 2
-                                        </th>
-                                        <th class="px-6 py-2 text-xs text-gray-500">
-                                            Sous-Titre
-                                        </th>
-                                        <th class="px-6 py-2 text-xs text-gray-500">
-                                            Image
+                                            Sous-titre
                                         </th>
                                         <th class="px-6 py-2 text-xs text-gray-500"></th>
                                     </tr>
@@ -44,28 +38,14 @@
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="titre_pt_1" value="{{ $edit->titre_pt_1 }}">
+                                                    type="text" name="titre" value="{{ $edit->titre }}">
                                             </div>
                                         </td>
                                         <td class="px-6 py-3">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="titre_pt_2" value="{{ $edit->titre_pt_2 }}">
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-3">
-                                            <div class="text-sm text-gray-900">
-                                                <textarea
-                                                    class="resize-y border rounded-md shadow appearance-none w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    name="sous_titre">{{ $edit->sous_titre }}</textarea>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-3">
-                                            <div class="text-sm text-gray-900">
-                                                <input
-                                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="file" name="image">
+                                                    type="text" name="sous_titre" value="{{ $edit->sous_titre }}">
                                             </div>
                                         </td>
                                         <td class="px-6 py-3">

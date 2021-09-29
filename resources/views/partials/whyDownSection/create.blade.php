@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __("hidden (Why Us 'Down' Create)") }}
+            {{ __("Home (Why Us 'Down' Create)") }}
         </h2>
     </x-slot>
 

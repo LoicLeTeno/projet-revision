@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Home (Hero Edit)') }}
+            {{ __("Home (Feature Section Edit Id: $edit->id)") }}
         </h2>
     </x-slot>
 
@@ -16,7 +16,7 @@
                                 type="submit">Retour</button>
                         </a>
                     </div>
-                    <form action="/homeHero/{{ $edit->id }}" method="POST" enctype="multipart/form-data">
+                    <form action="/featureSection/{{ $edit->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="border-b border-gray-200 shadow">
@@ -24,16 +24,19 @@
                                 <thead class="bg-gray-50">
                                     <tr>
                                         <th class="px-6 py-2 text-xs text-gray-500">
-                                            Titre partie 1
+                                            Id
                                         </th>
                                         <th class="px-6 py-2 text-xs text-gray-500">
-                                            Titre partie 2
+                                            Icon
                                         </th>
                                         <th class="px-6 py-2 text-xs text-gray-500">
-                                            Sous-Titre
+                                            Color
                                         </th>
                                         <th class="px-6 py-2 text-xs text-gray-500">
-                                            Image
+                                            Link
+                                        </th>
+                                        <th class="px-6 py-2 text-xs text-gray-500">
+                                            Titre
                                         </th>
                                         <th class="px-6 py-2 text-xs text-gray-500"></th>
                                     </tr>
@@ -42,33 +45,38 @@
                                     <tr class="whitespace-nowrap">
                                         <td class="px-6 py-3">
                                             <div class="text-sm text-gray-900">
-                                                <input
-                                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="titre_pt_1" value="{{ $edit->titre_pt_1 }}">
+                                                {{ $edit->id }}
                                             </div>
                                         </td>
-                                        <td class="px-6 py-3">
+                                        <td class="px-6 pt-3 py-3">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="titre_pt_2" value="{{ $edit->titre_pt_2 }}">
+                                                    type="text" name="icon" value='{{ $edit->icon }}'>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-3">
+                                        <td class="px-6 pt-3 py-3">
                                             <div class="text-sm text-gray-900">
-                                                <textarea
-                                                    class="resize-y border rounded-md shadow appearance-none w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    name="sous_titre">{{ $edit->sous_titre }}</textarea>
+                                                <input
+                                                    class="shadow appearance-none border rounded w-full h-8 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                    type="color" name="color" value='{{ $edit->color }}'>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-3">
+                                        <td class="px-6 pt-3 py-3">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="file" name="image">
+                                                    type="text" name="link" value='{{ $edit->link }}'>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-3">
+                                        <td class="px-6 pt-3 py-3">
+                                            <div class="text-sm text-gray-900">
+                                                <input
+                                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                    type="text" name="titre" value='{{ $edit->titre }}'>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 pt-3 py-3">
                                             <div class="flex justify-end">
                                                 <button
                                                     class="bg-blue-400 hover:bg-blue-200 text-white font-bold py-2 px-4 mx-3 rounded-full"
