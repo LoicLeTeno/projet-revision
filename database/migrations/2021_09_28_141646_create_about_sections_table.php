@@ -15,6 +15,16 @@ class CreateAboutSectionsTable extends Migration
     {
         Schema::create('about_sections', function (Blueprint $table) {
             $table->id();
+            // Image
+            $table->string('image');
+            
+            // Texte
+            $table->string('titre');
+            $table->mediumText('text');
+            $table->string('li_1');
+            $table->string('li_2');
+            $table->string('li_3');
+            $table->mediumText('sous_text');
             $table->timestamps();
         });
     }

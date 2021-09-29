@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AboutSection;
+use App\Models\CountSection;
 use Illuminate\Http\Request;
 
-class AboutSectionController extends Controller
+class CountSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AboutSectionController extends Controller
      */
     public function index()
     {
-        $abouts = AboutSection::all();
-        return view('pages.back-home', compact('abouts'));
+        $counts = CountSection::all();
+        return view('pages.back-home', compact('counts'));
     }
 
     /**
@@ -42,45 +42,39 @@ class AboutSectionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AboutSection  $aboutSection
+     * @param  \App\Models\CountSection  $countSection
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $show = AboutSection::find($id);
-        return view('partials.aboutSection.show', compact('show'));
+        $show = CountSection::find($id);
+        return view('partials.countSection.show', compact('show'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AboutSection  $aboutSection
+     * @param  \App\Models\CountSection  $countSection
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $edit = AboutSection::find($id);
-        return view('partials.aboutSection.edit', compact('edit'));
+        $edit = CountSection::find($id);
+        return view('partials.countSection.edit', compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AboutSection  $aboutSection
+     * @param  \App\Models\CountSection  $countSection
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $update = AboutSection::find($id);
-        // Image
-        $update->image = $request->image;
-        // Texte
-        $update->text = $request->text;
-        $update->li_1 = $request->li_1;
-        $update->li_2 = $request->li_2;
-        $update->li_3 = $request->li_3;
-        $update->sous_text = $request->sous_text;
+        $update = CountSection::find($id);
+        $update->number = $request->number;
+        $update->desp = $request->desp;
         $update->save();
 
         return redirect('/back-home');
@@ -89,12 +83,12 @@ class AboutSectionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AboutSection  $aboutSection
+     * @param  \App\Models\CountSection  $countSection
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $destroy = AboutSection::find($id);
+        $destroy = CountSection::find($id);
         $destroy->delete();
 
         return redirect('/back-home');

@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\AboutSectionController;
+use App\Http\Controllers\CountSectionController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\HomeHeroController;
+use App\Models\AboutSection;
+use App\Models\CountSection;
 use App\Models\Footer;
 use App\Models\Header;
 use App\Models\HomeHero;
@@ -21,9 +25,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $headers = Header::all();
     $heroes = HomeHero::all();
+    $abouts = AboutSection::all();
+    $counts = CountSection::all();
     $footers = Footer::all();
 
-    return view('pages.home', compact('headers','heroes', 'footers'));
+    return view('pages.home', compact('headers', 'heroes', 'abouts', 'counts', 'footers'));
 });
 
 Route::get('/about', function () {
@@ -67,10 +73,16 @@ Route::get('/dashboard', function () {
 // HOME
 Route::get('/back-home', function () {
     $heroes = HomeHero::all();
-    return view('pages.back-home', compact('heroes'));
+    $abouts = AboutSection::all();
+    $counts = CountSection::all();
+
+    return view('pages.back-home', compact('heroes', 'abouts', 'counts'));
 })->middleware(['auth'])->name('back-home');
 
 // BACK-END
+    // Page HOME
 Route::resource('homeHero', HomeHeroController::class);
+Route::resource('aboutSection', AboutSectionController::class);
+Route::resource('countSection', CountSectionController::class);
 
 require __DIR__.'/auth.php';

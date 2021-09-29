@@ -2,7 +2,8 @@
 
 @section('content')
     <!-- ======= Hero Section ======= -->
-    <section id="hero" style="background-image: url({{ $heroes[0]->image }})" class="d-flex justify-content-center align-items-center">
+    <section id="hero" style="background-image: url({{ $heroes[0]->image }})"
+        class="d-flex justify-content-center align-items-center">
         <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
             <h1>{{ $heroes[0]->titre_pt_1 }}<br>{{ $heroes[0]->titre_pt_2 }}</h1>
             <h2>{{ $heroes[0]->sous_titre }}</h2>
@@ -18,27 +19,21 @@
 
                 <div class="row">
                     <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                        <img src="{{ asset('img/about.jpg') }}" class="img-fluid" alt="">
+                        <img src={{ $abouts[0]->image }} class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                        <h3>{{ $abouts[0]->titre }}</h3>
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
+                            {{ $abouts[0]->text }}
                         </p>
                         <ul>
-                            <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <li><i class="bi bi-check-circle"></i> {{ $abouts[0]->li_1 }}
                             </li>
-                            <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate
-                                velit.</li>
-                            <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu
-                                fugiat nulla pariatur.</li>
+                            <li><i class="bi bi-check-circle"></i> {{ $abouts[0]->li_2 }}</li>
+                            <li><i class="bi bi-check-circle"></i> {{ $abouts[0]->li_3 }}</li>
                         </ul>
                         <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate
+                            {{ $abouts[0]->sous_text }}
                         </p>
 
                     </div>
@@ -50,35 +45,15 @@
         <!-- ======= Counts Section ======= -->
         <section id="counts" class="counts section-bg">
             <div class="container">
-
                 <div class="row counters">
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Students</p>
-                    </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Courses</p>
-                    </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Events</p>
-                    </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Trainers</p>
-                    </div>
-
+                    @foreach ($counts as $count)
+                        <div class="col-lg-3 col-6 text-center">
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $count->number }}" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p>{{ $count->desp }}</p>
+                        </div>
+                    @endforeach
                 </div>
-
             </div>
         </section><!-- End Counts Section -->
 

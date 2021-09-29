@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     {{-- Link app.css --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -30,42 +31,37 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
-    <!-- =======================================================
-  * Template Name: Mentor - v4.5.0
-  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-    ======================================================== -->
-
     {{-- Script app.js --}}
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Vendor JS Files -->
-    <script src="{{ asset('vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
-    <script src="{{ asset('vendor/purecounter/purecounter.js') }}"></script>
-    <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/aos/aos.js') }}" defer></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('vendor/php-email-form/validate.js') }}" defer></script>
+    <script src="{{ asset('vendor/purecounter/purecounter.js') }}" defer></script>
+    <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}" defer></script>
 
     <!-- Template Main JS File -->
-    <script src="{{ asset('js/main.js') }}"></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    <script src="{{ asset('js/main.js') }}" defer></script>
+</head>
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+<body class="font-sans antialiased">
+    <div class="min-h-screen bg-gray-100">
+        @include('layouts.navigation')
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
+        <!-- Page Heading -->
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
+    </div>
+    
+</body>
+
 </html>
