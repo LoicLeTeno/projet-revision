@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             AboutSectionSeeder::class,
             CountSectionSeeder::class,
             WhyUpSectionSeeder::class,
+            WhyDownSectionSeeder::class,
             
         ]);
     }

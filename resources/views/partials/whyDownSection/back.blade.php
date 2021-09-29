@@ -1,4 +1,4 @@
-<div class="py-8">
+<div class="pt-4 pb-8">
     <div class="container sm:px-6 lg:px-8 flex justify-center mx-auto">
         <div class="w-full">
             <div class="border-b border-gray-200 shadow">
@@ -9,50 +9,65 @@
                                 Id
                             </th>
                             <th class="px-6 py-2 text-xs text-gray-500">
-                                Number
+                                Titre
                             </th>
                             <th class="px-6 py-2 text-xs text-gray-500">
-                                Description
+                                Text
                             </th>
                             <th class="px-6 py-2 text-xs text-gray-500"></th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-300">
-                        @foreach ($counts as $count)
+                        @foreach ($whyDowns as $whyDown)
                             <tr class="whitespace-nowrap">
                                 <td class="px-6 py-3">
                                     <div class="text-sm text-gray-900">
-                                        {{ $count->id }}
-                                    </div>
-                                </td>
-                                <td class="px-6 py-3">
-                                    <div class="text-sm text-gray-900">
-                                        {{ $count->number }}
+                                        {{ $whyDown->id }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-3">
                                     <div class="text-sm text-gray-900 truncate ">
-                                        {{ $count->desp }}
+                                        {{ $whyDown->titre }}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-3">
+                                    <div class="text-sm text-gray-900 truncate ">
+                                        {{ Str::limit($whyDown->text, 20, '...') }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-3">
                                     <div class="flex justify-end">
-                                        <a href="countSection/{{ $count->id }}">
+                                        <a href="whyDownSection/{{ $whyDown->id }}">
                                             <button
                                                 class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 mx-3 rounded-full"
-                                                type="submit"><i class="bi bi-eye"></i></i></button>
+                                                type="submit"><i class="bi bi-eye"></i></button>
                                         </a>
-                                        <a href="countSection/{{ $count->id }}/edit">
+                                        <a href="whyDownSection/{{ $whyDown->id }}/edit">
                                             <button
                                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-3 rounded-full"
                                                 type="submit"><i class="bi bi-pencil-square"></i></button>
                                         </a>
+                                        <form action="/whyDownSection/{{ $whyDown->id }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('back-home') }}">
+                                                <button
+                                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mx-3 rounded-full"
+                                                    type="submit"><i class="bi bi-trash-fill"></i></button>
+                                            </a>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div class="flex justify-center m-3">
+                    <a href="whyDownSection/create">
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded-full"
+                            type="submit"><i class="bi bi-plus-lg"></i></button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

@@ -39,13 +39,13 @@
                                     <div class="flex justify-end">
                                         <a href="whyUpSection/{{ $whyUp->id }}">
                                             <button
-                                                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mx-3 rounded-full"
-                                                type="submit">Show</button>
+                                                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 mx-3 rounded-full"
+                                                type="submit"><i class="bi bi-eye"></i></button>
                                         </a>
                                         <a href="whyUpSection/{{ $whyUp->id }}/edit">
                                             <button
                                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-3 rounded-full"
-                                                type="submit">Edit</button>
+                                                type="submit"><i class="bi bi-pencil-square"></i></button>
                                         </a>
                                     </div>
                                 </td>

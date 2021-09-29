@@ -71,7 +71,7 @@
                                         <td class="px-6 py-3">
                                             <div class="flex justify-end">
                                                 <button
-                                                    class="bg-red-400 hover:bg-red-200 text-white font-bold py-2 px-4 mx-3 rounded-full"
+                                                    class="bg-blue-400 hover:bg-blue-200 text-white font-bold py-2 px-4 mx-3 rounded-full"
                                                     type="submit">Save</button>
                                             </div>
                                         </td>

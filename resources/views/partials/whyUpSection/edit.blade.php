@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __("hidden (Why Us 'Up' Edit)") }}
+            {{ __("Home (Why Us 'Up' Edit)") }}
         </h2>
     </x-slot>
 
@@ -71,7 +71,7 @@
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="flex justify-end">
                                                 <button
-                                                    class="bg-red-400 hover:bg-red-200 text-white font-bold py-2 px-4 mx-3 rounded-full"
+                                                    class="bg-blue-400 hover:bg-blue-200 text-white font-bold py-2 px-4 mx-3 rounded-full"
                                                     type="submit">Save</button>
                                             </div>
                                         </td>
