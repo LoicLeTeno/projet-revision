@@ -22,4 +22,11 @@
         <h3 class="container">Count Section</h3>
         @include('partials.countSection.back')
     </section>
+
+        {{-- Why Us section --}}
+        <section class="pt-0">
+            <h3 class="container">Why  Us Section</h3>
+            <h5 class="flex justify-center mt-3 mb-1">Card</h5>
+            @include('partials.whyUpSection.back')
+        </section>
 </x-app-layout>

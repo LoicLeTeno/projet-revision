@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\AboutSection;
+use App\Models\WhyUpSection;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
             HomeHeroSeeder::class,
             AboutSectionSeeder::class,
             CountSectionSeeder::class,
+            WhyUpSectionSeeder::class,
             
         ]);
     }

@@ -16,7 +16,6 @@
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
-
                 <div class="row">
                     <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
                         <img src={{ $abouts[0]->image }} class="img-fluid" alt="">
@@ -35,10 +34,8 @@
                         <p>
                             {{ $abouts[0]->sous_text }}
                         </p>
-
                     </div>
                 </div>
-
             </div>
         </section><!-- End About Section -->
 
@@ -64,15 +61,12 @@
                 <div class="row">
                     <div class="col-lg-4 d-flex align-items-stretch">
                         <div class="content">
-                            <h3>Why Choose Mentor?</h3>
+                            <h3>{{ $whyUps[0]->titre }}</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus
-                                optio ad corporis.
+                                {{ $whyUps[0]->text }}
                             </p>
                             <div class="text-center">
-                                <a href="/about" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                                <a href="/about" class="more-btn">{{ $whyUps[0]->button }} <i class="bx bx-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
