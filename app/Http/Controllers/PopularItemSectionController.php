@@ -15,8 +15,8 @@ class PopularItemSectionController extends Controller
      */
     public function index()
     {
-        $pupularItems = PopularItemSection::all();
-        return view('pages.back-home', compact('pupularItems'));
+        $popularItems = PopularItemSection::all();
+        return view('pages.back-home', compact('popularItems'));
     }
 
     /**

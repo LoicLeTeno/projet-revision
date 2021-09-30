@@ -40,14 +40,20 @@
         @include('partials.featureSection.back')
     </section>
 
-        {{-- Popular section --}}
-        <section class="pt-0">
-            <h3 class="container">Popular Section</h3>
+    {{-- Popular section --}}
+    <section class="pt-0">
+        <h3 class="container">Popular Section</h3>
 
-            <h5 class="flex justify-center mt-3 mb-1">Titre</h5>
-            @include('partials.popularTitleSection.back')
+        <h5 class="flex justify-center mt-3 mb-1">Titre</h5>
+        @include('partials.popularTitleSection.back')
 
-            <h5 class="flex justify-center mt-3 mb-1">Items</h5>
-            @include('partials.popularItemSection.back')
-        </section>
+        <h5 class="flex justify-center mt-3 mb-1">Items</h5>
+        @include('partials.popularItemSection.back')
+    </section>
+
+    {{-- Trainer section --}}
+    <section class="pt-0">
+        <h3 class="container">Trainer Section</h3>
+        @include('partials.trainerSection.back')
+    </section>
 </x-app-layout>

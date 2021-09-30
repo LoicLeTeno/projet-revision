@@ -6,6 +6,7 @@ use App\Http\Controllers\FeatureSectionController;
 use App\Http\Controllers\HomeHeroController;
 use App\Http\Controllers\PopularItemSectionController;
 use App\Http\Controllers\PopularTitleSectionController;
+use App\Http\Controllers\TrainerSectionController;
 use App\Http\Controllers\WhyDownSectionController;
 use App\Http\Controllers\WhyUpSectionController;
 use App\Models\AboutSection;
@@ -16,6 +17,7 @@ use App\Models\Header;
 use App\Models\HomeHero;
 use App\Models\PopularItemSection;
 use App\Models\PopularTitleSection;
+use App\Models\TrainerSection;
 use App\Models\WhyDownSection;
 use App\Models\WhyUpSection;
 use Illuminate\Support\Facades\Route;
@@ -41,9 +43,10 @@ Route::get('/', function () {
     $features = FeatureSection::all();
     $popularTitles = PopularTitleSection::all();
     $popularItems = PopularItemSection::all();
+    $trainers = TrainerSection::all();
     $footers = Footer::all();
 
-    return view('pages.home', compact('headers', 'heroes', 'abouts', 'counts', 'whyUps', 'whyDowns', 'features', 'popularTitles', 'popularItems', 'footers'));
+    return view('pages.home', compact('headers', 'heroes', 'abouts', 'counts', 'whyUps', 'whyDowns', 'features', 'popularTitles', 'popularItems', 'trainers', 'footers'));
 });
 
 Route::get('/about', function () {
@@ -94,8 +97,9 @@ Route::get('/back-home', function () {
     $features = FeatureSection::all();
     $popularTitles = PopularTitleSection::all();
     $popularItems = PopularItemSection::all();
+    $trainers = TrainerSection::all();
 
-    return view('pages.back-home', compact('heroes', 'abouts', 'counts', 'whyUps', 'whyDowns', 'features', 'popularTitles', 'popularItems'));
+    return view('pages.back-home', compact('heroes', 'abouts', 'counts', 'whyUps', 'whyDowns', 'features', 'popularTitles', 'popularItems', 'trainers'));
 })->middleware(['auth'])->name('back-home');
 
 // BACK-END
@@ -108,5 +112,6 @@ Route::resource('whyDownSection', WhyDownSectionController::class);
 Route::resource('featureSection', FeatureSectionController::class);
 Route::resource('popularTitleSection', PopularTitleSectionController::class);
 Route::resource('popularItemSection', PopularItemSectionController::class);
+Route::resource('TrainerSection', TrainerSectionController::class);
 
 require __DIR__.'/auth.php';
