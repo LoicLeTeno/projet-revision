@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\CountSectionController;
 use App\Http\Controllers\FeatureSectionController;
 use App\Http\Controllers\HomeHeroController;
+use App\Http\Controllers\PopularItemSectionController;
 use App\Http\Controllers\PopularTitleSectionController;
 use App\Http\Controllers\WhyDownSectionController;
 use App\Http\Controllers\WhyUpSectionController;
@@ -13,6 +14,7 @@ use App\Models\FeatureSection;
 use App\Models\Footer;
 use App\Models\Header;
 use App\Models\HomeHero;
+use App\Models\PopularItemSection;
 use App\Models\PopularTitleSection;
 use App\Models\WhyDownSection;
 use App\Models\WhyUpSection;
@@ -38,9 +40,10 @@ Route::get('/', function () {
     $whyDowns = WhyDownSection::all();
     $features = FeatureSection::all();
     $popularTitles = PopularTitleSection::all();
+    $popularItems = PopularItemSection::all();
     $footers = Footer::all();
 
-    return view('pages.home', compact('headers', 'heroes', 'abouts', 'counts', 'whyUps', 'whyDowns', 'features', 'popularTitles', 'footers'));
+    return view('pages.home', compact('headers', 'heroes', 'abouts', 'counts', 'whyUps', 'whyDowns', 'features', 'popularTitles', 'popularItems', 'footers'));
 });
 
 Route::get('/about', function () {
@@ -90,8 +93,9 @@ Route::get('/back-home', function () {
     $whyDowns = WhyDownSection::all();
     $features = FeatureSection::all();
     $popularTitles = PopularTitleSection::all();
+    $popularItems = PopularItemSection::all();
 
-    return view('pages.back-home', compact('heroes', 'abouts', 'counts', 'whyUps', 'whyDowns', 'features', 'popularTitles'));
+    return view('pages.back-home', compact('heroes', 'abouts', 'counts', 'whyUps', 'whyDowns', 'features', 'popularTitles', 'popularItems'));
 })->middleware(['auth'])->name('back-home');
 
 // BACK-END
@@ -103,5 +107,6 @@ Route::resource('whyUpSection', WhyUpSectionController::class);
 Route::resource('whyDownSection', WhyDownSectionController::class);
 Route::resource('featureSection', FeatureSectionController::class);
 Route::resource('popularTitleSection', PopularTitleSectionController::class);
+Route::resource('popularItemSection', PopularItemSectionController::class);
 
 require __DIR__.'/auth.php';

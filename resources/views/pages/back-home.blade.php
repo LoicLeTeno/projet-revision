@@ -46,5 +46,8 @@
 
             <h5 class="flex justify-center mt-3 mb-1">Titre</h5>
             @include('partials.popularTitleSection.back')
+
+            <h5 class="flex justify-center mt-3 mb-1">Items</h5>
+            @include('partials.popularItemSection.back')
         </section>
 </x-app-layout>

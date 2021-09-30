@@ -90,7 +90,7 @@ class AboutSectionController extends Controller
         $update->sous_text = $request->sous_text;
         $update->save();
 
-        return redirect('/back-home');
+        return redirect('/aboutSection/' .$update->id);
     }
 
     /**

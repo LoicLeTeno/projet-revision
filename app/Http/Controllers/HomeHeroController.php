@@ -88,7 +88,7 @@ class HomeHeroController extends Controller
         }
         $update->save();
 
-        return redirect('/back-home');
+        return redirect('/homeHero/' .$update->id);
     }
 
     /**

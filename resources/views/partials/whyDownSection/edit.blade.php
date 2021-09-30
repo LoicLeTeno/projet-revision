@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __("Home (Why Us Section Edit Id: $edit->id)") }}
+            {{ __("Home (Why Us Section 'Card' Edit Id: $edit->id)") }}
         </h2>
     </x-slot>
 

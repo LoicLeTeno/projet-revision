@@ -42,7 +42,7 @@ class WhyDownSectionController extends Controller
         $store->text = $request->text;
         $store->save();
 
-        return redirect('/back-home');
+        return redirect('/whyDownSection/' .$store->id);
     }
 
     /**
@@ -84,7 +84,7 @@ class WhyDownSectionController extends Controller
         $update->text = $request->text;
         $update->save();
 
-        return redirect('/back-home');
+        return redirect('/whyDownSection/' .$update->id);
     }
 
     /**

@@ -77,7 +77,7 @@ class PopularTitleSectionController extends Controller
         $update->sous_titre = $request->sous_titre;
         $update->save();
 
-        return redirect('/back-home');
+        return redirect('/popularTitleSection/' .$update->id);
     }
 
     /**

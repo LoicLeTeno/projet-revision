@@ -77,7 +77,7 @@ class CountSectionController extends Controller
         $update->desp = $request->desp;
         $update->save();
 
-        return redirect('/back-home');
+        return redirect('/countSection/' .$update->id);
     }
 
     /**

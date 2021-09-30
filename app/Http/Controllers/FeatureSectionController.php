@@ -45,7 +45,7 @@ class FeatureSectionController extends Controller
         $store->titre = $request->titre;
         $store->save();
 
-        return redirect('/back-home');
+        return redirect('/featureSection/' .$store->id);
     }
 
     /**
@@ -90,7 +90,7 @@ class FeatureSectionController extends Controller
         $update->titre = $request->titre;
         $update->save();
 
-        return redirect('/back-home');
+        return redirect('/featureSection/' .$update->id);
     }
 
     /**

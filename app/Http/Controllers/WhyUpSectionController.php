@@ -78,7 +78,7 @@ class WhyUpSectionController extends Controller
         $update->button = $request->button;
         $update->save();
 
-        return redirect('/back-home');
+        return redirect('/whyUpSection/' .$update->id);
     }
 
     /**
