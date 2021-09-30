@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @include('layouts.flash')
+
     <section>
         <div class="py-12">
             <div class="container sm:px-6 lg:px-8 flex justify-center mx-auto">
@@ -37,14 +39,14 @@
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="desp">
+                                                    type="text" name="desp" value="{{ old('desp') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="number" name="price">
+                                                    type="number" name="price" value="{{ old('price') }}">
                                             </div>
                                         </td>
                                     </tr>
@@ -69,14 +71,14 @@
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="titre">
+                                                    type="text" name="titre" value="{{ old('titre') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <textarea
                                                     class="resize-y border rounded-md shadow appearance-none w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    name="text"></textarea>
+                                                    name="text" >{{ old('text') }}</textarea>
                                             </div>
                                         </td>
                                     </tr>
@@ -104,21 +106,21 @@
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="name">
+                                                    type="text" name="name" value="{{ old('name') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="number" name="view">
+                                                    type="number" name="view" value="{{ old('view') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="number" name="love">
+                                                    type="number" name="love" value="{{ old('love') }}">
                                             </div>
                                         </td>
                                     </tr>

@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @include('layouts.flash')
+
     <section>
         <div class="py-12">
             <div class="container sm:px-6 lg:px-8 flex justify-center mx-auto">
@@ -43,28 +45,28 @@
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="icon">
+                                                    type="text" name="icon" value="{{ old('icon') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full h-10 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="color" name="color">
+                                                    type="color" name="color" value="{{ old('color') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="link">
+                                                    type="text" name="link" value="{{ old('link') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="titre">
+                                                    type="text" name="titre" value="{{ old('titre') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">

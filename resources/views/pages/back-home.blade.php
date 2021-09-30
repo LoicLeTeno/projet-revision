@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @include('layouts.flash')
+
     {{-- HERO section --}}
     <section>
         <h3 class="container">Hero Section</h3>

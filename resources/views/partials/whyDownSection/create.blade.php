@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @include('layouts.flash')
+
     <section>
         <div class="py-12">
             <div class="container sm:px-6 lg:px-8 flex justify-center mx-auto">
@@ -31,9 +33,7 @@
                                         <th class="px-6 py-2 text-xs text-gray-500">
                                             Texte
                                         </th>
-                                        <th class="px-6 py-2 text-xs text-gray-500">
-                                            Texte
-                                        </th>
+                                        <th class="px-6 py-2 text-xs text-gray-500"></th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-300">
@@ -42,21 +42,21 @@
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="icon">
+                                                    type="text" name="icon" value="{{ old('icon') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="titre">
+                                                    type="text" name="titre" value="{{ old('titre') }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <textarea
                                                     class="resize-y border rounded-md shadow appearance-none w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    name="text"></textarea>
+                                                    name="text" value="{{ old('text') }}"></textarea>
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">

@@ -72,12 +72,17 @@ class PopularTitleSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'titre' => ['required', 'max:30'],
+            'sous_titre' => ['required', 'max:255'],
+        ]);
+
         $update = PopularTitleSection::find($id);
         $update->titre = $request->titre;
         $update->sous_titre = $request->sous_titre;
         $update->save();
 
-        return redirect('/popularTitleSection/' .$update->id);
+        return redirect('/popularTitleSection/' .$update->id)->with('warning', "Modification du Popular Title");
     }
 
     /**
@@ -91,6 +96,6 @@ class PopularTitleSectionController extends Controller
         $destroy = PopularTitleSection::find($id);
         $destroy->delete();
 
-        return redirect('/back-home');
+        return redirect('/back-home')->with('danger', "Supprétion du Popular title");
     }
 }

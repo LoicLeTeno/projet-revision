@@ -72,13 +72,19 @@ class WhyUpSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'titre' => ['required', 'max:30'],
+            'text' => ['required', 'max:500'],
+            'button' => ['required', 'max:30'],
+        ]);
+
         $update = WhyUpSection::find($id);
         $update->titre = $request->titre;
         $update->text = $request->text;
         $update->button = $request->button;
         $update->save();
 
-        return redirect('/whyUpSection/' .$update->id);
+        return redirect('/whyUpSection/' .$update->id)->with('warning', "Modification de la Title card");
     }
 
     /**
@@ -92,6 +98,6 @@ class WhyUpSectionController extends Controller
         $destroy = WhyUpSection::find($id);
         $destroy->delete();
 
-        return redirect('/back-home');
+        return redirect('/back-home')->with('warning', "Supprétion de la Title card");
     }
 }

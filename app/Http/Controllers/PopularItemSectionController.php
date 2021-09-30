@@ -37,8 +37,19 @@ class PopularItemSectionController extends Controller
      */
     public function store(Request $request)
     {
-        $store = new PopularItemSection;
+        request()->validate([
+            'image' => ['required', 'image', 'mimes:png,jpg,jpeg'],
+            'desp' => ['required', 'max:255'],
+            'price' => ['required', 'integer'],
+            'titre' => ['required', 'max:30'],
+            'text' => ['required', 'max:255'],
+            'photo' => ['required', 'image', 'mimes:png,jpg,jpeg'],
+            'name' => ['required', 'max:60'],
+            'view' => ['required', 'integer'],
+            'love' => ['required', 'integer'],
+        ]);
 
+        $store = new PopularItemSection;
         // Image
         Storage::put('public/img/', $request->file('image'));
         $store->image = $request->file('image')->hashName();
@@ -59,7 +70,7 @@ class PopularItemSectionController extends Controller
         $store->love = $request->love;
         $store->save();
 
-        return redirect('/popularItemSection/' .$store->id);
+        return redirect('/popularItemSection/' .$store->id)->with('success', "Ajout réussi de l'item");
     }
 
     /**
@@ -95,8 +106,17 @@ class PopularItemSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = PopularItemSection::find($id);
+        request()->validate([
+            'desp' => ['required', 'max:255'],
+            'price' => ['required', 'integer'],
+            'titre' => ['required', 'max:30'],
+            'text' => ['required', 'max:255'],
+            'name' => ['required', 'max:60'],
+            'view' => ['required', 'integer'],
+            'love' => ['required', 'integer'],
+        ]);
 
+        $update = PopularItemSection::find($id);
         // Image
         if ($request->image != null) {
             if ($update->image != 'course-1.jpg' && $update->image !=  'course-2.jpg' && $update->image !=  'course-3.jpg') {
@@ -127,7 +147,7 @@ class PopularItemSectionController extends Controller
         $update->love = $request->love;
         $update->save();
 
-        return redirect('/popularItemSection/' .$update->id);
+        return redirect('/popularItemSection/' .$update->id)->with('warning', "Modification de l'item: $update->id");
     }
 
     /**
@@ -147,6 +167,6 @@ class PopularItemSectionController extends Controller
         }
         $destroy->delete();
 
-        return redirect('/back-home');
+        return redirect('/back-home')->with('danger', "Suprrétion de l'item: $destroy->id");
     }
 }

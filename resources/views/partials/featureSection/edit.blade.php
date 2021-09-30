@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @include('layouts.flash')
+
     <section>
         <div class="py-12">
             <div class="container sm:px-6 lg:px-8 flex justify-center mx-auto">

@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @include('layouts.flash')
+
     <section>
         <div class="py-12">
             <div class="container sm:px-6 lg:px-8 flex justify-center mx-auto">
@@ -16,7 +18,7 @@
                                 type="submit">Retour</button>
                         </a>
                     </div>
-                    <form action="/whyUpSection/{{ $edit->id }}" method="POST" enctype="multipart/form-data">
+                    <form action="/whyDownSection/{{ $edit->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="border-b border-gray-200 shadow">
@@ -45,14 +47,14 @@
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="titre" value="{{ $edit->titre }}">
+                                                    type="text" name="icon" value="{{ $edit->icon }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="text" name="text" value="{{ $edit->text }}">
+                                                    type="text" name="titre" value="{{ $edit->titre }}">
                                             </div>
                                         </td>
                                     </tr>

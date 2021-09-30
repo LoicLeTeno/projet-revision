@@ -36,13 +36,19 @@ class WhyDownSectionController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'icon' => ['required'],
+            'titre' => ['required', 'max:30'],
+            'text' => ['required', 'max:255'],
+        ]);
+
         $store = new WhyDownSection;
         $store->icon = $request->icon;
         $store->titre = $request->titre;
         $store->text = $request->text;
         $store->save();
 
-        return redirect('/whyDownSection/' .$store->id);
+        return redirect('/whyDownSection/' .$store->id)->with('success', "Ajout réussi de la card");
     }
 
     /**
@@ -78,13 +84,19 @@ class WhyDownSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'icon' => ['required'],
+            'titre' => ['required', 'max:30'],
+            'text' => ['required', 'max:255'],
+        ]);
+
         $update = WhyDownSection::find($id);
         $update->icon = $request->icon;
         $update->titre = $request->titre;
         $update->text = $request->text;
         $update->save();
 
-        return redirect('/whyDownSection/' .$update->id);
+        return redirect('/whyDownSection/' .$update->id)->with('warning', "Modification de card: $update->id");
     }
 
     /**
@@ -98,6 +110,6 @@ class WhyDownSectionController extends Controller
         $destroy = WhyDownSection::find($id);
         $destroy->delete();
 
-        return redirect('/back-home');
+        return redirect('/back-home')->with('warning', "Modification de la card: $destroy->id");
     }
 }

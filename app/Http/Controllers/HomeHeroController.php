@@ -73,6 +73,12 @@ class HomeHeroController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'titre_pt_1' => ['required', 'max:30'],
+            'titre_pt_2' => ['required', 'max:30'],
+            'sous_titre' => ['required', 'max:255'],
+        ]);
+
         $update = HomeHero::find($id);
         // Texte
         $update->titre_pt_1 = $request->titre_pt_1;
@@ -88,7 +94,7 @@ class HomeHeroController extends Controller
         }
         $update->save();
 
-        return redirect('/homeHero/' .$update->id);
+        return redirect('/homeHero/' .$update->id)->with('warning', "Modification du Héro");
     }
 
     /**
@@ -102,6 +108,6 @@ class HomeHeroController extends Controller
         $destroy = HomeHero::find($id);
         $destroy->delete();
 
-        return redirect('/back-home');
+        return redirect('/back-home')->with('danger', "Supprétion du Héro");
     }
 }

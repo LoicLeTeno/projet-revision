@@ -45,17 +45,17 @@
                                 </td>
                                 <td class="px-6 py-3">
                                     <div class="flex justify-end">
-                                        <a href="trainerSection/{{ $trainer->id }}">
+                                        <a href="TrainerSection/{{ $trainer->id }}">
                                             <button
                                                 class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 mx-3 rounded-full"
                                                 type="submit"><i class="bi bi-eye"></i></i></button>
                                         </a>
-                                        <a href="trainerSection/{{ $trainer->id }}/edit">
+                                        <a href="TrainerSection/{{ $trainer->id }}/edit">
                                             <button
                                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-3 rounded-full"
                                                 type="submit"><i class="bi bi-pencil-square"></i></button>
                                         </a>
-                                        <form action="/trainerSection/{{ $trainer->id }}" method="POST">
+                                        <form action="/TrainerSection/{{ $trainer->id }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <a href="{{ route('back-home') }}">
@@ -71,7 +71,7 @@
                     </tbody>
                 </table>
                 <div class="flex justify-center m-3">
-                    <a href="trainerSection/create">
+                    <a href="TrainerSection/create">
                         <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded-full"
                             type="submit"><i class="bi bi-plus-lg"></i></button>
                     </a>

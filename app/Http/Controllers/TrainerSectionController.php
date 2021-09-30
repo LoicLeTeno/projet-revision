@@ -26,7 +26,7 @@ class TrainerSectionController extends Controller
      */
     public function create()
     {
-        return view('partials.trainerSection.create');
+        return view('partials.TrainerSection.create');
     }
 
     /**
@@ -37,8 +37,17 @@ class TrainerSectionController extends Controller
      */
     public function store(Request $request)
     {
-        $store = new TrainerSection;
+        request()->validate([
+            'name' => ['required', 'max:60'],
+            'desp' => ['required', 'max:255'],
+            'texte' => ['required', 'max:255'],
+            'link_twitter' => ['required', 'max:100'],
+            'link_facebook' => ['required', 'max:100'],
+            'link_instagram' => ['required', 'max:100'],
+            'link_linkedin' => ['required', 'max:100'],
+        ]);
 
+        $store = new TrainerSection;
         // Profil
         Storage::put('public/img/trainers/', $request->file('photo'));
         $store->photo = $request->file('photo')->hashName();
@@ -49,48 +58,58 @@ class TrainerSectionController extends Controller
         $store->texte = $request->texte;
 
         // Link
-        $store->link_ = $request->link_twitter;
-        $store->link_ = $request->link_facebook;
-        $store->link_ = $request->link_instagram;
-        $store->link_ = $request->link_linkedin;
+        $store->link_twitter = $request->link_twitter;
+        $store->link_facebook = $request->link_facebook;
+        $store->link_instagram = $request->link_instagram;
+        $store->link_linkedin = $request->link_linkedin;
         $store->save();
 
-        return redirect('/trainerSection/' . $store->id);
+        return redirect('/TrainerSection/' . $store->id)->with('success', "Ajout réussi de la card trainer: $store->id");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TrainerSection  $trainerSection
+     * @param  \App\Models\TrainerSection  $TrainerSection
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $show =TrainerSection::find($id);
-        return view('partials.trainerSection.show', compact('show'));
+        return view('partials.TrainerSection.show', compact('show'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TrainerSection  $trainerSection
+     * @param  \App\Models\TrainerSection  $TrainerSection
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $edit =TrainerSection::find($id);
-        return view('partials.trainerSection.edit', compact('edit'));
+        return view('partials.TrainerSection.edit', compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TrainerSection  $trainerSection
+     * @param  \App\Models\TrainerSection  $TrainerSection
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'name' => ['required', 'max:60'],
+            'desp' => ['required', 'max:255'],
+            'texte' => ['required', 'max:255'],
+            'link_twitter' => ['required', 'max:100'],
+            'link_facebook' => ['required', 'max:100'],
+            'link_instagram' => ['required', 'max:100'],
+            'link_linkedin' => ['required', 'max:100'],
+        ]);
+
         $update = TrainerSection::find($id);
 
         // Profil
@@ -108,19 +127,19 @@ class TrainerSectionController extends Controller
         $update->texte = $request->texte;
 
         // Link
-        $update->link_ = $request->link_twitter;
-        $update->link_ = $request->link_facebook;
-        $update->link_ = $request->link_instagram;
-        $update->link_ = $request->link_linkedin;
+        $update->link_twitter = $request->link_twitter;
+        $update->link_facebook = $request->link_facebook;
+        $update->link_instagram = $request->link_instagram;
+        $update->link_linkedin = $request->link_linkedin;
         $update->save();
 
-        return redirect('/trainerSection/' . $update->id);
+        return redirect('/TrainerSection/' . $update->id)->with('warning', "Modification de la card trainer: $update->id");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TrainerSection  $trainerSection
+     * @param  \App\Models\TrainerSection  $TrainerSection
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -131,6 +150,6 @@ class TrainerSectionController extends Controller
         }
         $destroy->delete();
 
-        return redirect('/back-home');
+        return redirect('/back-home')->with('danger', "Supprétion de la card trainer: $destroy->id");
     }
 }

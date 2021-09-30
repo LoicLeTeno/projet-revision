@@ -73,6 +73,15 @@ class AboutSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'titre' => ['required', 'max:255'],
+            'text' => ['required', 'max:255'],
+            'li_1' => ['required', 'max:255'],
+            'li_2' => ['required', 'max:255'],
+            'li_3' => ['required', 'max:255'],
+            'sous_text' => ['required', 'max:255'],
+        ]);
+
         $update = AboutSection::find($id);
         // Image
         if ($request->image != null) {
@@ -83,6 +92,7 @@ class AboutSectionController extends Controller
             $update->image = $request->file('image')->hashName();
         }
         // Texte
+        $update->titre = $request->titre;
         $update->text = $request->text;
         $update->li_1 = $request->li_1;
         $update->li_2 = $request->li_2;
@@ -90,7 +100,7 @@ class AboutSectionController extends Controller
         $update->sous_text = $request->sous_text;
         $update->save();
 
-        return redirect('/aboutSection/' .$update->id);
+        return redirect('/aboutSection/' .$update->id)->with('warning', 'Modificiation Réussi');
     }
 
     /**
@@ -104,6 +114,6 @@ class AboutSectionController extends Controller
         $destroy = AboutSection::find($id);
         $destroy->delete();
 
-        return redirect('/back-home');
+        return redirect('/back-home')->with('danger', "Supprétion de l'about Section");
     }
 }

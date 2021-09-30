@@ -36,6 +36,13 @@ class FeatureSectionController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'icon' => ['required'],
+            'color' => ['required'],
+            'link' => ['required', 'max:100'],
+            'titre' => ['required', 'max:30'],
+        ]);
+
         $store = new FeatureSection;
         // Css
         $store->icon = $request->icon;
@@ -45,7 +52,7 @@ class FeatureSectionController extends Controller
         $store->titre = $request->titre;
         $store->save();
 
-        return redirect('/featureSection/' .$store->id);
+        return redirect('/featureSection/' .$store->id)->with('success', "Ajout réussi de la feature");
     }
 
     /**
@@ -81,6 +88,13 @@ class FeatureSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'icon' => ['required'],
+            'color' => ['required'],
+            'link' => ['required', 'max:100'],
+            'titre' => ['required', 'max:30'],
+        ]);
+        
         $update = FeatureSection::find($id);
         // Css
         $update->icon = $request->icon;
@@ -90,7 +104,7 @@ class FeatureSectionController extends Controller
         $update->titre = $request->titre;
         $update->save();
 
-        return redirect('/featureSection/' .$update->id);
+        return redirect('/featureSection/' .$update->id)->with('warning', "Modification de la feature: $update->id");
     }
 
     /**
@@ -104,6 +118,6 @@ class FeatureSectionController extends Controller
         $destroy = FeatureSection::find($id);
         $destroy->delete();
 
-        return redirect('/back-home');
+        return redirect('/back-home')->with('danger', "Supprétion de la feature: $destroy->id");
     }
 }

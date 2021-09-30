@@ -72,12 +72,17 @@ class CountSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'number' => ['required', 'integer'],
+            'desp' => ['required', 'max:255'],
+        ]);
+
         $update = CountSection::find($id);
         $update->number = $request->number;
         $update->desp = $request->desp;
         $update->save();
 
-        return redirect('/countSection/' .$update->id);
+        return redirect('/countSection/' .$update->id)->with('warning', "Modification du count: $update->id");
     }
 
     /**
@@ -91,6 +96,6 @@ class CountSectionController extends Controller
         $destroy = CountSection::find($id);
         $destroy->delete();
 
-        return redirect('/back-home');
+        return redirect('/back-home')->with('danger', "Supprétion du count: $destroy->id");
     }
 }

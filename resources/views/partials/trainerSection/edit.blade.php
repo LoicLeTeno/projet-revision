@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @include('layouts.flash')
+
     <section>
         <div class="py-12">
             <div class="container sm:px-6 lg:px-8 flex justify-center mx-auto">
@@ -16,13 +18,17 @@
                                 type="submit">Retour</button>
                         </a>
                     </div>
-                    <form action="/popularItemSection" method="POST" enctype="multipart/form-data">
+                    <form action="/TrainerSection/{{ $edit->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="border-b border-gray-200 shadow">
                             {{-- Profil --}}
                             <table class="w-full divide-y divide-gray-300 ">
                                 <thead class="bg-gray-50">
                                     <tr>
+                                        <th class="px-6 py-2 text-xs text-gray-500">
+                                            Id
+                                        </th>
                                         <th class="px-6 py-2 text-xs text-gray-500">
                                             Name
                                         </th>
@@ -33,6 +39,11 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-300">
                                     <tr class="whitespace-nowrap">
+                                        <td class="px-6 pt-3 pb-5">
+                                            <div class="text-sm text-gray-900">
+                                                {{ $edit->id }}
+                                            </div>
+                                        </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
@@ -82,14 +93,14 @@
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="number" name="link_facebook" value="{{ $edit->link_facebook }}">
+                                                    type="text" name="link_facebook" value="{{ $edit->link_facebook }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
                                             <div class="text-sm text-gray-900">
                                                 <input
                                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    type="number" name="link_instagram" value="{{ $edit->link_instagram }}">
+                                                    type="text" name="link_instagram" value="{{ $edit->link_instagram }}">
                                             </div>
                                         </td>
                                         <td class="px-6 pt-3 pb-5">
